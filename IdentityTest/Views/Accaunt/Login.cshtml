@@ -1,0 +1,34 @@
+﻿@model IdentityTest.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group">
+        <label>Password</label>
+        @Html.TextBoxFor(m => m.Password, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-primary" type="submit">Login</button>
+}
+
+<br />
+
+@using(Html.BeginForm("GoogleLogin", "Accaunt", FormMethod.Post, new { style = "margin-top:12px;" }))
+{
+    <input type="hidden" value="@ViewBag.returnUrl" name="returnUrl" />
+    <button class="btn btn-primary" type="submit">Log In with Google</button>
+}
+

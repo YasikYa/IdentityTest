@@ -1,0 +1,19 @@
+﻿@model IEnumerable<IdentityTest.Entity.File>
+@{
+    ViewBag.Title = "FileUsers";
+}
+
+<h2>FileUsers</h2>
+<table>
+    <tr>
+        <td>User</td>
+        <td>File</td>
+    </tr>
+    @foreach(var file in Model)
+    {
+        <tr>
+            <td>@file.User.UserName</td>
+            <td>@file.FileName</td>
+        </tr>
+    }
+</table>

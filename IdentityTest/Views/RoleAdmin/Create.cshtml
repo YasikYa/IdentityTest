@@ -1,0 +1,20 @@
+﻿@using IdentityTest.Models
+@model AppRole
+
+@{ 
+    ViewBag.Title = "Roles";
+}
+
+<h2>Create a role</h2>
+
+@Html.ValidationSummary()
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        <label>Name</label>
+        @Html.TextBoxFor(r => r.Name, new { @class = "form-control"})
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    @Html.ActionLink("Cancel", "Index", null, new { @class = "btn btn-default"})
+}
